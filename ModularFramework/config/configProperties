@@ -1,0 +1,4 @@
+browserType=edge
+baseUrl=https://amazon.in
+pageLoadTimeout=90
+elementDetectionTimeout=10
