@@ -20,8 +20,8 @@ public class AmazonHomepageTests extends BaseTest {
 		
 		extentReportUtils.addLog(Status.INFO, result);
 		
-		String expectedResult = "1-16 of 41 results for \"Apple watch\"";   //assertion
-		Assert.assertEquals(result, expectedResult);
+		String expectedResult = "1-16 of 41 results for \"Apple watch\"";   //expected value
+		Assert.assertEquals(result, expectedResult); //assertion
 		
 	}
 }

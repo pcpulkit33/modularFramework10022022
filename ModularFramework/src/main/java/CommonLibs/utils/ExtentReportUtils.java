@@ -32,9 +32,9 @@ public class ExtentReportUtils {
 		extentTest.log(status, comment);
 	}
 
-	public void addScreenshotToTheReport(String ScreenshotFilename) throws Exception {
+	public void addScreenshotToTheReport(String screenshotFilename) throws Exception {
 
-		extentTest.addScreenCaptureFromPath(ScreenshotFilename);
+		extentTest.addScreenCaptureFromPath(screenshotFilename);
 	}
 
 	public void closeReport() {

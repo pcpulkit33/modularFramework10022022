@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeSuite;
 import com.aventstack.extentreports.Status;
 
 import CommonLibs.implementation.CommonDriver;
+import CommonLibs.implementation.ScreenshotControl;
 import CommonLibs.utils.ConfigFileUtils;
 import CommonLibs.utils.DateUtils;
 import CommonLibs.utils.ExtentReportUtils;
@@ -20,7 +21,7 @@ import in.amazon.pages.AmazonHomepage;
 public class BaseTest {
 
 	WebDriver driver;
-	
+
 	CommonDriver cmnDriver;
 	AmazonHomepage homepage;
 
@@ -29,9 +30,11 @@ public class BaseTest {
 
 	String htmlReportFilename;
 	ExtentReportUtils extentReportUtils;
-	
+
 	String configFilename;
 	Properties configproperties;
+
+	ScreenshotControl screenshotControl;
 
 	@BeforeSuite
 	public void preSetup() throws Exception {
@@ -51,21 +54,33 @@ public class BaseTest {
 
 	@BeforeMethod
 	public void setUp() throws Exception {
-		
-		invokeBrowser();
-		
-		initializePages();
-		
-	}
 
+		invokeBrowser();
+
+		initializeScreenshotVariable();
+
+		initializePages();
+
+	}
 
 	@AfterMethod
 	public void cleanUp(ITestResult testResult) throws Exception {
+
+		String testcaseName = testResult.getName();
 
 		if (testResult.getStatus() == ITestResult.SUCCESS) {
 			extentReportUtils.addLog(Status.PASS, "All test step passed...");
 		} else if (testResult.getStatus() == ITestResult.FAILURE) {
 			extentReportUtils.addLog(Status.FAIL, "One or more test step failed...");
+
+			String executionStartTime = DateUtils.getcurrentTime();
+			String screenshotFilename = String.format("%s/screenshots/%s-%s.jpeg", currentWorkingDirectory,
+					testcaseName, executionStartTime);
+			
+			screenshotControl.captureAndSaveScreenshot(screenshotFilename);  //capture screenshot
+			
+			extentReportUtils.addScreenshotToTheReport(screenshotFilename); //add screenshot to report
+
 		} else {
 			extentReportUtils.addLog(Status.SKIP, "One or more test step is skipped...");
 		}
@@ -85,11 +100,11 @@ public class BaseTest {
 	private void initializeDefaultVariables() throws Exception {
 
 		executionStartTime = DateUtils.getcurrentTime();
-		
+
 		currentWorkingDirectory = System.getProperty("user.dir");
-		
+
 		configFilename = String.format("%s/config/configProperties", currentWorkingDirectory);
-				
+
 		configproperties = ConfigFileUtils.configFileReader(configFilename);
 	}
 
@@ -115,18 +130,24 @@ public class BaseTest {
 		extentReportUtils.addLog(Status.INFO, "Element detection timeout is " + implicitwait);
 		cmnDriver.setElementDetectionTimeout(implicitwait);
 
-		String baseurl =  configproperties.getProperty("baseUrl");
+		String baseurl = configproperties.getProperty("baseUrl");
 		extentReportUtils.addLog(Status.INFO, "Base url is" + baseurl);
 		cmnDriver.navigateToUrl(baseurl);
-		
+
 		driver = cmnDriver.getDriver();
-		
+
 	}
-	
+
 	private void initializePages() {
 
 		homepage = new AmazonHomepage(driver);
-		
+
 	}
-	
+
+	private void initializeScreenshotVariable() {
+
+		screenshotControl = new ScreenshotControl(driver);
+
+	}
+
 }
