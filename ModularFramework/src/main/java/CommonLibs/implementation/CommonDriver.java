@@ -1,11 +1,13 @@
 package CommonLibs.implementation;
 
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import CommonLibs.contracts.IDriver;
 
@@ -46,9 +48,25 @@ public class CommonDriver implements IDriver {
 
 			System.setProperty("webdriver.chrome.driver", currentWorkingDirectory + "/drivers/chromedriver.exe");
 
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(); 
+			}
+			
+			else if (browserType.equalsIgnoreCase("chrome-remote")) {
+				
+				ChromeOptions chromeOptions= new ChromeOptions();
+				
+				URL remoteUrl = new URL("");  //enter the url here e,g-
+				
+				driver = new RemoteWebDriver(chromeOptions);
+				
+			}
+			else if (browserType.equalsIgnoreCase("chrome-remote")) {	
+				
+			} else if (browserType.equalsIgnoreCase("chrome-remote")) {
+				
+			}
 
-		} else if (browserType.equalsIgnoreCase("chrome-headless")) {
+		 else if (browserType.equalsIgnoreCase("chrome-headless")) {
 
 			System.setProperty("webdriver.chrome.driver", currentWorkingDirectory + "/drivers/chromedriver.exe");
 

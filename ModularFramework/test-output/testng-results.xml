@@ -2,23 +2,23 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="8739" started-at="2022-02-15T07:21:03 IST" finished-at="2022-02-15T07:21:11 IST">
+  <suite name="Default suite" duration-ms="9197" started-at="2022-02-15T20:14:04 IST" finished-at="2022-02-15T20:14:13 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="8739" started-at="2022-02-15T07:21:03 IST" finished-at="2022-02-15T07:21:11 IST">
+    <test name="Default test" duration-ms="9197" started-at="2022-02-15T20:14:04 IST" finished-at="2022-02-15T20:14:13 IST">
       <class name="in.amazon.tests.AmazonHomepageTests">
-        <test-method status="PASS" signature="preSetup()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@612679d6]" name="preSetup" is-config="true" duration-ms="117" started-at="2022-02-15T07:21:02 IST" finished-at="2022-02-15T07:21:03 IST">
+        <test-method status="PASS" signature="preSetup()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@1060b431]" name="preSetup" is-config="true" duration-ms="116" started-at="2022-02-15T20:14:04 IST" finished-at="2022-02-15T20:14:04 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@612679d6]" name="setUp" is-config="true" duration-ms="4697" started-at="2022-02-15T07:21:03 IST" finished-at="2022-02-15T07:21:07 IST">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@1060b431]" name="setUp" is-config="true" duration-ms="4825" started-at="2022-02-15T20:14:04 IST" finished-at="2022-02-15T20:14:09 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="VerifySearchProduct()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@612679d6]" name="VerifySearchProduct" duration-ms="2813" started-at="2022-02-15T07:21:07 IST" finished-at="2022-02-15T07:21:10 IST">
+        <test-method status="FAIL" signature="VerifySearchProduct()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@1060b431]" name="VerifySearchProduct" duration-ms="2730" started-at="2022-02-15T20:14:09 IST" finished-at="2022-02-15T20:14:12 IST">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [1-16 of 41 results for "Apple watch"] but found [24 results for "Apple Watch"
+              <![CDATA[expected [1-16 of 41 results for "Apple watch"] but found [1-24 of 25 results for "Apple Watch"
 Sort by:
         
             Featured
@@ -34,7 +34,7 @@ Sort by:
     Sort by:Featured]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [1-16 of 41 results for "Apple watch"] but found [24 results for "Apple Watch"
+              <![CDATA[java.lang.AssertionError: expected [1-16 of 41 results for "Apple watch"] but found [1-24 of 25 results for "Apple Watch"
 Sort by:
         
             Featured
@@ -54,7 +54,7 @@ at org.testng.Assert.assertEqualsImpl(Assert.java:149)
 at org.testng.Assert.assertEquals(Assert.java:131)
 at org.testng.Assert.assertEquals(Assert.java:655)
 at org.testng.Assert.assertEquals(Assert.java:665)
-at in.amazon.tests.AmazonHomepageTests.VerifySearchProduct(AmazonHomepageTests.java:25)
+at in.amazon.tests.AmazonHomepageTests.VerifySearchProduct(AmazonHomepageTests.java:24)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -89,18 +89,18 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifySearchProduct -->
-        <test-method status="PASS" signature="cleanUp(org.testng.ITestResult)[pri:0, instance:in.amazon.tests.AmazonHomepageTests@612679d6]" name="cleanUp" is-config="true" duration-ms="1187" started-at="2022-02-15T07:21:10 IST" finished-at="2022-02-15T07:21:11 IST">
+        <test-method status="PASS" signature="cleanUp(org.testng.ITestResult)[pri:0, instance:in.amazon.tests.AmazonHomepageTests@1060b431]" name="cleanUp" is-config="true" duration-ms="1606" started-at="2022-02-15T20:14:12 IST" finished-at="2022-02-15T20:14:13 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifySearchProduct status=FAILURE method=AmazonHomepageTests.VerifySearchProduct()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@612679d6] output={null}]]]>
+                <![CDATA[[TestResult name=VerifySearchProduct status=FAILURE method=AmazonHomepageTests.VerifySearchProduct()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@1060b431] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
-        <test-method status="PASS" signature="postCleanUp()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@612679d6]" name="postCleanUp" is-config="true" duration-ms="382" started-at="2022-02-15T07:21:11 IST" finished-at="2022-02-15T07:21:12 IST">
+        <test-method status="PASS" signature="postCleanUp()[pri:0, instance:in.amazon.tests.AmazonHomepageTests@1060b431]" name="postCleanUp" is-config="true" duration-ms="331" started-at="2022-02-15T20:14:13 IST" finished-at="2022-02-15T20:14:14 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- postCleanUp -->
